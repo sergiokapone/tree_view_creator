@@ -6,17 +6,17 @@ def generate_tree(directory, prefix=""):
     files = os.listdir(directory)
     files.sort()  # Сортування файлів для послідовного відображення
 
-    tree_lines = []  # Список строк дерева
+    tree_lines = []  # Список рядків дерева
 
     for index, file in enumerate(files):
         path = os.path.join(directory, file)
         is_last = index == len(files) - 1
 
         if is_last:
-            node = prefix + "└── " + file
+            node = prefix + "└── " + file + ('/' if os.path.isdir(path) else '')
             sub_prefix = prefix + "    "  # Префікс для піддиректорій
         else:
-            node = prefix + "├── " + file
+            node = prefix + "├── " + file + ('/' if os.path.isdir(path) else '')
             sub_prefix = prefix + "│   "  # Префікс для піддиректорій
 
         tree_lines.append(node)
