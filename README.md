@@ -11,7 +11,7 @@ This Python program generates an ASCII tree based on the directory structure of 
 
 
 ```shell
-python tree_generator.py /path/to/your/directory
+python tree.py /path/to/your/directory
 ```
 
 The program will generate an ASCII tree based on the contents of the specified directory and display it in the console.
