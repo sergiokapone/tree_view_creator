@@ -4,8 +4,6 @@ This Python program generates an ASCII tree based on the directory structure of 
 
 ## Usage
 
-## Usage
-
 To generate a directory tree, run the following command:
 
 ```shell
