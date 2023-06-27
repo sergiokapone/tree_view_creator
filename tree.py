@@ -4,7 +4,13 @@ import argparse
 
 def generate_tree(directory, prefix=""):
     files = os.listdir(directory)
-    files.sort()  # Сортування файлів для послідовного відображення
+
+    sort_type = args.sort
+
+    if sort_type == "type":
+        files.sort(key=lambda x: (not os.path.isdir(os.path.join(directory, x)), x))
+    elif sort_type == "name":
+        files.sort()
 
     tree_lines = []  # Список рядків дерева
 
@@ -13,10 +19,10 @@ def generate_tree(directory, prefix=""):
         is_last = index == len(files) - 1
 
         if is_last:
-            node = prefix + "└── " + file + ('/' if os.path.isdir(path) else '')
+            node = prefix + "└── " + file + ("/" if os.path.isdir(path) else "")
             sub_prefix = prefix + "    "  # Префікс для піддиректорій
         else:
-            node = prefix + "├── " + file + ('/' if os.path.isdir(path) else '')
+            node = prefix + "├── " + file + ("/" if os.path.isdir(path) else "")
             sub_prefix = prefix + "│   "  # Префікс для піддиректорій
 
         tree_lines.append(node)
@@ -42,6 +48,13 @@ if __name__ == "__main__":
         metavar="FILE",
         type=str,
         help="write the tree to the specified file",
+    )
+    parser.add_argument(
+        "-s",
+        "--sort",
+        choices=["type", "name"],
+        default="type",
+        help="sort the tree by type (directories first) or by name (default: type)",
     )
 
     args = parser.parse_args()
