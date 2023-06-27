@@ -9,7 +9,7 @@ This Python program generates an ASCII tree based on the directory structure of 
 3. Open a terminal or command prompt and navigate to the directory where `tree.py` is located.
 4. Run the program with the following command, replacing `<directory>` with the path to the directory you want to generate the tree for.
 5. There is also an option to save to a file.
-Add option `-w <file>` or `--write <file>`.  The file will be created in the <directory> with the given <file> name. If the option is not used, the tree will be displayed in the console.
+Add option `-w <file>` or `--write <file>`.  The file will be created in the `<directory>` with the given `<file>` name. If the option is not used, the tree will be displayed in the console.
 
 ```shell
 python tree.py /path/to/your/directory -w file.txt
