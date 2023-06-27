@@ -4,7 +4,7 @@ import argparse
 
 def generate_tree(directory, prefix=""):
     files = os.listdir(directory)
-    files.sort()  # Сортировка файлов для последовательного отображения
+    files.sort()  # Сортування файлів для послідовного відображення
 
     tree_lines = []  # Список строк дерева
 
@@ -14,15 +14,15 @@ def generate_tree(directory, prefix=""):
 
         if is_last:
             node = prefix + "└── " + file
-            sub_prefix = prefix + "    "  # Префикс для поддиректорий
+            sub_prefix = prefix + "    "  # Префікс для піддиректорій
         else:
             node = prefix + "├── " + file
-            sub_prefix = prefix + "│   "  # Префикс для поддиректорий
+            sub_prefix = prefix + "│   "  # Префікс для піддиректорій
 
         tree_lines.append(node)
 
         if os.path.isdir(path):
-            next_prefix = sub_prefix + "    "  # Дополнительный префикс для вложенных файлов
+            next_prefix = sub_prefix + ""  # Додатковий префікс для вкладених файлів
             sub_tree = generate_tree(path, prefix=next_prefix)
             tree_lines.extend(sub_tree)
 
