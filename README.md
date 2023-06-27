@@ -4,16 +4,37 @@ This Python program generates an ASCII tree based on the directory structure of 
 
 ## Usage
 
-1. Ensure you have Python installed on your system.
-2. Clone this repository or download the `tree.py` file.
-3. Open a terminal or command prompt and navigate to the directory where `tree.py` is located.
-4. Run the program with the following command, replacing `<directory>` with the path to the directory you want to generate the tree for.
-5. There is also an option to save to a file.
-Add option `-w <file>` or `--write <file>`.  The file will be created in the `<directory>` with the given `<file>` name. If the option is not used, the tree will be displayed in the console.
+## Usage
+
+To generate a directory tree, run the following command:
 
 ```shell
-python tree.py /path/to/your/directory -w file.txt
+python main.py DIRECTORY [-w FILE] [-s {type,name}]
 ```
+
+### Arguments
+
+- `DIRECTORY`: The path to the directory for which you want to generate the tree.
+
+### Options
+
+- `-w FILE, --write FILE`: Write the tree to the specified file instead of printing it to the console.
+
+- `-s {type,name}, --sort {type,name}`: Sort the tree by type (directories first) or by name. By default, the tree is sorted by type.
+
+## Sorting
+
+The tool provides two options for sorting the directory tree:
+
+- **Type**: Directories are listed first, followed by files. This is the default sorting option.
+
+- **Name**: Entries are sorted alphabetically by name.
+
+To specify the sorting option, use the `-s` or `--sort` flag followed by either `type` or `name` as the argument.
+
+### Sorting Examples
+
+Sort by type (directories first):
 
 The program will generate an ASCII tree based on the contents of the specified directory and display it in the console.
 
