@@ -2,6 +2,9 @@ import os
 import argparse
 
 
+IGNORE_DIRS = [".venv", "__pycache__", ".git"]
+
+
 def generate_tree(directory, prefix=""):
     files = os.listdir(directory)
 
@@ -17,6 +20,9 @@ def generate_tree(directory, prefix=""):
     for index, file in enumerate(files):
         path = os.path.join(directory, file)
         is_last = index == len(files) - 1
+
+        if file in IGNORE_DIRS:  # Проверка, нужно ли проигнорировать текущую директорию
+            continue
 
         if is_last:
             node = prefix + "└── " + file + ("/" if os.path.isdir(path) else "")
