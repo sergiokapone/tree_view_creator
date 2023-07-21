@@ -6,6 +6,23 @@ IGNORE_DIRS = [".venv", "__pycache__", ".git"]
 
 
 def generate_tree(directory, prefix=""):
+    """
+    Generate a directory tree representation for the specified directory.
+
+    Args:
+        directory (str): The path to the directory for which the tree is generated.
+        prefix (str, optional): The prefix to prepend to each line in the tree (used for formatting).
+
+    Returns:
+        List[str]: A list of strings representing the directory tree.
+
+    Note:
+        This function recursively traverses the directory and its subdirectories to create the tree.
+        The tree lines are formatted using prefixes to indicate the directory hierarchy.
+        The tree includes both files and directories.
+
+    """
+    
     files = os.listdir(directory)
 
     sort_type = args.sort
